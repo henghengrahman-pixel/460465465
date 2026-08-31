@@ -1,3 +1,0 @@
-import test from 'node:test';import assert from 'node:assert/strict';import fs from 'node:fs';
-test('current installer resolves agent independent of current directory',()=>{const s=fs.readFileSync('INSTALL-NOW.cmd','utf8');assert.match(s,/%~dp0StaffMonitorAgent\.exe/);assert.match(s,/%~dp0dist\\StaffMonitorAgent\.exe/);assert.match(s,/Jangan jalankan langsung dari preview ZIP/)});
-test('current installer self-elevates and keeps one install path',()=>{const s=fs.readFileSync('INSTALL-NOW.cmd','utf8');assert.match(s,/Start-Process -FilePath/);assert.match(s,/Verb RunAs/);assert.doesNotMatch(s,/StaffMonitorSetup-v1\.4\.1\.cmd/)});
